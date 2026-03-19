@@ -1,1 +1,1 @@
-# Classification-de-pi-ces-avec-CNNs
+# Classification-de-pieces-avec-CNNs
