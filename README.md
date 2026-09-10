@@ -8,15 +8,28 @@
 
 ## 📋 Contexte & Objectif
 
-**Problème :** Classifier automatiquement des images de pièces de monnaie en plusieurs catégories (différents pays, valeurs, années).
-
-**Approche :** 
-- Réutiliser un modèle AlexNet pré-entraîné sur ImageNet (transfer learning)
-- Fine-tuner les couches supérieures du réseau sur notre dataset spécifique
-- Optimiser avec stratification train/validation et augmentation de données
-
-**Résultat :** Modèle entraîné capable de prédire la classe d'une pièce avec haute précision.
-
+Dans le cadre du module IFLBE055 ? Réseaux de neurones pour la vision par ordina-
+teur, les séances 3 et 4 sont consacrées à l'introduction des réseaux de neurones convolutifs
+(CNN) et à leur application à des problèmes de classi?cation d'images.
+Lors d'un précédent travail pratique, une première approche de classi?cation de pièces
+en euros avait été réalisée en utilisant des méthodes classiques de vision par ordinateur,
+notamment des techniques de détection de contours telles que l'algorithme de Canny
+ainsi que la transformée de Hough. Bien que ces méthodes permettent d'extraire certaines
+caractéristiques géométriques des objets, elles restent limitées face à la variabilité des
+images (éclairage, orientation, bruit, diversité des pièces).
+Dans ce nouveau travail pratique, une approche basée sur l'apprentissage profond est
+adoptée. L'objectif est de concevoir un système de classi?cation automatique capable
+d'identi?er le type d'une pièce à partir d'une image, en s'appuyant sur un réseau de
+neurones convolutif (CNN). Contrairement aux méthodes classiques, les CNN permettent
+d'apprendre automatiquement des représentations pertinentes directement à partir des
+données, sans nécessiter d'extraction manuelle de caractéristiques.
+Les données utilisées proviennent du challenge DL4CV Coin Classi?cation proposé sur
+Kaggle. Ce jeu de données contient des images de pièces issues de di?érentes devises et
+pays, associées à des étiquettes décrivant leur valeur et leur origine.
+L'objectif principal de ce travail est donc de mettre en ÷uvre un modèle de type Alex-
+Net a?n de classi?er ces images, d'évaluer ses performances, et de comparer les résultats
+obtenus avec ceux du leaderboard du challenge. Une analyse critique des résultats sera
+également menée, accompagnée de propositions d'amélioration.
 ---
 
 ## 🛠️ Stack Technique
@@ -33,7 +46,7 @@
 
 ## 📊 Dataset
 
-- **Source :** DL4CV Coin Classification (Kaggle)
+- **Source :** Les données seront issues du challenge DL4CV Coin classification | Kaggle 
 - **Structure :** Images PNG/JPG + CSV d'annotations (Id, Class)
 - **Preprocessing :**
   - Redimensionnement 224×224 (entrée AlexNet)
@@ -74,7 +87,7 @@ AlexNet (pré-entraîné ImageNet) ↓ Freeze features (conv + pool layers) ↓ 
 
 ---
 
-## 🚀 Comment utiliser
+## Comment utiliser
 
 ### Installation
 
@@ -102,3 +115,11 @@ model = torch.load("alexnet_coins.pth")
 img = Image.open("mon_image.jpg")
 # Preprocess & predict
 pred = model(img)
+
+---
+
+## Références
+
+Alex Krizhevsky, Ilya Sutskever, Geo?rey E. Hinton.
+ImageNet Classi?cation with Deep Convolutional Neural Networks.
+Advances in Neural Information Processing Systems (NeurIPS), 2012.
