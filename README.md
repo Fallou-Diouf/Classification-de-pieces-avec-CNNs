@@ -288,8 +288,8 @@ torch.save(
 ### 1. Cloner le projet
 
 ```bash
-git clone https://github.com/Fallou-Diouf/nom-du-repo.git
-cd nom-du-repo
+git clone https://github.com/Fallou-Diouf/DL4CV_Coin_classification
+DL4CV_Coin_classification
 ```
 
 ### 2. Installer les dépendances
@@ -300,50 +300,7 @@ pip install torch torchvision pandas scikit-learn matplotlib tqdm
 
 ---
 
-## ▶️ Entraînement
-
-Après avoir préparé le dataset :
-
-```bash
-python train.py
-```
-
-Les principaux paramètres peuvent être configurés directement dans le script :
-
-```python
-num_epochs = 15
-batch_size = 64
-learning_rate = 0.01
-```
-
----
-
-## 🔮 Prédiction sur une nouvelle image
-
-Une image peut ensuite être prétraitée avec les mêmes transformations que celles utilisées lors de la validation.
-
-```python
-from PIL import Image
-import torch
-
-image = Image.open("coin.jpg").convert("RGB")
-
-image = val_transform(image)
-image = image.unsqueeze(0)
-image = image.to(device)
-
-model.eval()
-
-with torch.no_grad():
-    output = model(image)
-    prediction = output.argmax(dim=1)
-
-print("Classe prédite :", prediction.item())
-```
-
----
-
-## 🧪 Améliorations possibles
+## Améliorations possibles
 
 Plusieurs pistes peuvent être explorées pour améliorer le projet.
 
@@ -363,7 +320,7 @@ AlexNet + Fine-Tuning
 
 afin de mesurer l'impact de l'adaptation des couches convolutionnelles.
 
-### 🔹 2. Tester d'autres architectures
+### 2. Tester d'autres architectures
 
 Comparer AlexNet avec des architectures plus modernes :
 
@@ -373,7 +330,7 @@ Comparer AlexNet avec des architectures plus modernes :
 * MobileNet
 * Vision Transformer (ViT)
 
-### 🔹 3. Améliorer la Data Augmentation
+### 3. Améliorer la Data Augmentation
 
 Tester :
 
@@ -383,7 +340,7 @@ Tester :
 * rotations plus importantes ;
 * transformations photométriques.
 
-### 🔹 4. Évaluer avec davantage de métriques
+### 4. Évaluer avec davantage de métriques
 
 Au-delà de l'accuracy :
 
@@ -393,7 +350,7 @@ Au-delà de l'accuracy :
 * matrice de confusion ;
 * top-5 accuracy.
 
-### 🔹 5. Analyse des erreurs
+### 5. Analyse des erreurs
 
 Identifier les classes régulièrement confondues par le modèle.
 
@@ -401,7 +358,7 @@ Cela permettrait notamment d'étudier si certaines pièces ont une apparence tr�
 
 ---
 
-## 📚 Ce que ce projet permet de mettre en pratique
+## Ce que ce projet permet de mettre en pratique
 
 Ce projet constitue une première mise en pratique de plusieurs concepts importants en **Computer Vision** et **Deep Learning** :
 
@@ -420,7 +377,7 @@ Ce projet constitue une première mise en pratique de plusieurs concepts importa
 
 ---
 
-## 🧠 Compétences développées
+## Compétences développées
 
 **Computer Vision**
 
@@ -462,8 +419,5 @@ Advances in Neural Information Processing Systems (NeurIPS).
 ## 👨‍💻 Auteur
 
 **Fallou Diouf**
-
-🎓 MSc — Vision & Machine Intelligence
-🔬 Computer Vision • Deep Learning • Information Retrieval
 
 Ce projet a été réalisé dans le cadre de la formation en **Vision par Ordinateur et Réseaux de Neurones**.
